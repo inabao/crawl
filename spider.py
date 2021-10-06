@@ -8,10 +8,11 @@ from bs4 import BeautifulSoup
 import re
 import urllib.request,urllib.error
 import xlwt
+from constant import *
 
 def main():
     baseurl = "http://www.zhongyaocai360.com/a/alihong.html#6091"
-    savepath = "中医药.xls"
+    savepath = "result/中医药.xls"
     #(1)获取数据
     datalist = getData(baseurl)
     #print(datalist)
@@ -73,10 +74,7 @@ def getData(baseurl):
 
 #得到一个指定URL的网页内容
 def askUrl(url):
-    head = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36"
-    }
-    request = urllib.request.Request(url,headers=head)
+    request = urllib.request.Request(url,headers=HEAD)
     html = ""
     try:
         response = urllib.request.urlopen(request)
